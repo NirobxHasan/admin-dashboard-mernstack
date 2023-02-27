@@ -7,7 +7,7 @@ import { useGetProductsQuery } from 'state/api'
 function Products() {
     const {data, isLoading, } = useGetProductsQuery()
     console.log("🚀 ~ file: index.jsx:9 ~ Products ~ data:", data)
-    const isNonMobile = useMediaQuery('(min-width: 100px)')
+    const isNonMobile = useMediaQuery('(min-width: 1000px)')
   return (
     <Box m="1.5rem 2.5rem">
         <Header title={'Products'} subtitle={'See your list of products'}/>
