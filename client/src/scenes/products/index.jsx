@@ -7,7 +7,7 @@ import { useGetProductsQuery } from 'state/api'
 function Products() {
     const {data, isLoading, } = useGetProductsQuery()
     console.log("🚀 ~ file: index.jsx:9 ~ Products ~ data:", data)
-    const isNonMobile = useMediaQuery('min-width: 1000px')
+    const isNonMobile = useMediaQuery('(min-width: 100px)')
   return (
     <Box m="1.5rem 2.5rem">
         <Header title={'Products'} subtitle={'See your list of products'}/>
@@ -15,8 +15,8 @@ function Products() {
         {data || !isLoading ?(
             <Box 
                 mt="20px" 
-                display='flex'
-                gridTemplateColumns="reapt(4, minmax(0,1fr))"
+                display='grid'
+                gridTemplateColumns="repeat(4, minmax(0,1fr))"
                 justifyContent="space-between"
                 rowGap="20px"
                 columnGap="1.33%"
@@ -26,14 +26,14 @@ function Products() {
 
             >
                 {
-                    data.map(( _id,
+                    data.map(( {_id,
                                 name,
                                 description,
                                 price,
                                 rating,
                                 category,
                                 supply,
-                                stat)=>(
+                                stat})=>(
                         <Product
                                     _id={_id}
                                 name={name}
@@ -44,6 +44,7 @@ function Products() {
                                 supply={supply}
                                 stat={stat}
                         />
+                        // <p>{description}</p>
 
                     ))
                 }
@@ -102,6 +103,7 @@ const Product = ({
                 >
                     See More
                 </Button>
+                 </CardActions>
                 <Collapse
                     in={isExpanded}
                     timeout="auto"
@@ -119,7 +121,7 @@ const Product = ({
                         <Typography>id {_id}</Typography>
                     </CardContent>
                 </Collapse>
-            </CardActions>
+           
 
         </Card>
     )
