@@ -11,7 +11,6 @@ import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";
 
 /* DATA IMPORT */
-
 /* CONFIGARATION */
 dotenv.config();
 const app = express();
@@ -43,8 +42,10 @@ mongoose
       /* ONLY ADD DATA ONE TIME */
       // User.insertMany(dataUser)
       // Product.insertMany(dataProduct)
-      // ProductStat.insertMany(dataProductStat)
+      // ProductStat.insertMany(dataProductStat);
       //   Transaction.insertMany(dataTransaction);
+
+      // OverallStat.insertMany(dataOverallStat);
     });
   })
   .catch((error) => console.log(`${error} did not connect`));
