@@ -7,7 +7,7 @@ import { useGetSalesQuery } from 'state/api';
 function Overview() {
   const [view, setView] = useState('units');
   const { data } = useGetSalesQuery();
-  console.log('🚀 ~ file: index.js:5 ~ Overview ~ data:', data);
+  // console.log('🚀 ~ file: index.js:5 ~ Overview ~ data:', data);
 
   return (
     <Box m="1.5rem 2.5rem">
